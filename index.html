@@ -1,162 +1,211 @@
-<!doctype html>
-<html lang="zh-Hant" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="數位多媒體學生的視覺設計、互動網頁與影像作品集。"
-    />
-    <title>林予安｜數位多媒體作品集</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="script.js"></script>
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">跳到主要內容</a>
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>溫心妤 | 數位多媒體系個人作品集</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            900: '#4c1d95',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="回到首頁">
-        <span class="brand-mark">YA</span>
-        <span class="brand-copy">
-          <strong>LIN YU-AN</strong>
-          <small>Digital Media Student</small>
-        </span>
-      </a>
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span>選單</span>
-      </button>
-
-      <nav id="site-nav" class="site-nav" aria-label="主要導覽">
-        <a href="#about">關於我</a>
-        <a href="#works">作品展示</a>
-        <a href="#contact">聯絡我</a>
-        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">
-          <span class="theme-icon" aria-hidden="true">◐</span>
-          <span>切換主題</span>
-        </button>
-      </nav>
-    </header>
-
-    <main id="main-content">
-      <section id="top" class="hero section-shell" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">DIGITAL MEDIA · PORTFOLIO 2026</p>
-          <h1 id="hero-title">把想像，<span>做成可以互動的作品。</span></h1>
-          <p class="hero-lead">
-            我是林予安，正在學習用影像、介面與程式，把觀察到的生活轉換成有節奏、有溫度的數位體驗。
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#works">瀏覽作品 <span aria-hidden="true">↗</span></a>
-            <a class="button button-quiet" href="#about">認識我</a>
-          </div>
-          <div class="hero-meta" aria-label="個人專長摘要">
-            <div><strong>03</strong><span>作品類別</span></div>
-            <div><strong>08</strong><span>完成專案</span></div>
-            <div><strong>01</strong><span>創作方向</span></div>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-label="作品集視覺預覽">
-          <div class="visual-grid"></div>
-          <div class="visual-note note-top">Selected work<br /><strong>01 / 08</strong></div>
-          <div class="visual-card">
-            <div class="visual-card-top"><span>01</span><span>motion study</span></div>
-            <div class="visual-orbit"><span></span><span></span><span></span></div>
-            <p>光的<br /><em>練習</em></p>
-            <div class="visual-card-bottom"><span>VISUAL / 2026</span><span>↗</span></div>
-          </div>
-          <div class="visual-note note-bottom">Scroll to explore<br /><span>↓</span></div>
-        </div>
-      </section>
-
-      <section id="about" class="about section-shell" aria-labelledby="about-title">
-        <div class="section-heading">
-          <p class="eyebrow">01 / ABOUT</p>
-          <h2 id="about-title">先觀察，再創作。</h2>
-        </div>
-        <div class="about-grid">
-          <p class="about-statement">
-            我喜歡把複雜的訊息整理成清楚的畫面，也喜歡研究使用者如何在一個介面裡移動、停留與發現。
-          </p>
-          <div class="about-details">
-            <p>目前就讀數位多媒體相關科系，創作練習集中在品牌視覺、互動網頁與動態影像。</p>
-            <div class="skill-list" aria-label="技能列表">
-              <span>Visual Design</span><span>Web Design</span><span>Motion</span><span>Creative Coding</span>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-widest text-brand-600">WEN.</a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-brand-600 transition-colors">關於我</a>
+                <a href="#skills" class="hover:text-brand-600 transition-colors">技能與興趣</a>
+                <a href="#contact" class="hover:text-brand-600 transition-colors">聯絡方式</a>
             </div>
-          </div>
+            <a href="#contact" class="md:hidden text-brand-600"><i class="fa-solid fa-bars text-xl"></i></a>
         </div>
-      </section>
+    </nav>
 
-      <section id="works" class="works section-shell" aria-labelledby="works-title">
-        <div class="section-heading works-heading">
-          <div>
-            <p class="eyebrow">02 / SELECTED WORKS</p>
-            <h2 id="works-title">正在形成的作品集。</h2>
-          </div>
-          <p class="section-note">每一個作品，都是一次重新整理問題的方法。</p>
+    <!-- Hero Section -->
+    <section id="about" class="pt-32 pb-20 md:pt-40 md:pb-32 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+            <!-- Text Content -->
+            <div class="flex-1 text-center md:text-left">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-brand-100 text-brand-600 text-sm font-medium mb-6 shadow-sm border border-brand-200">
+                    <i class="fa-solid fa-graduation-cap mr-2"></i>黎明技術學院 數位多媒體系
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight text-slate-900">
+                    你好，我是 <br class="hidden md:block" />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-500">溫心妤</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-500 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
+                    「喜歡簡單生活，也喜歡認真對待每一件事。」
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="px-8 py-3.5 bg-brand-600 text-white rounded-full font-medium hover:bg-brand-700 transition-all shadow-lg shadow-brand-500/30 flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                        與我聯絡 <i class="fa-solid fa-paper-plane"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Profile Image Placeholder -->
+            <div class="flex-1 flex justify-center md:justify-end w-full">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-100 to-brand-500 rounded-full transform translate-x-4 translate-y-4 md:translate-x-6 md:translate-y-6 opacity-50 blur-lg"></div>
+                    <img src="https://placehold.co/400x400/7c3aed/ffffff?text=Profile\nPicture" alt="溫心妤的個人照" class="relative z-10 w-full h-full object-cover rounded-full border-8 border-white shadow-xl">
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="filter-bar" role="group" aria-label="作品分類">
-          <button class="filter-button is-active" type="button" data-filter="all">全部 <span>08</span></button>
-          <button class="filter-button" type="button" data-filter="visual">視覺設計 <span>03</span></button>
-          <button class="filter-button" type="button" data-filter="web">網頁互動 <span>03</span></button>
-          <button class="filter-button" type="button" data-filter="motion">動態影像 <span>02</span></button>
+    <!-- Skills & Interests -->
+    <section id="skills" class="py-20 bg-white px-6 border-y border-slate-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 text-slate-900">專業技能 & 日常興趣</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- Skills Progress Bars -->
+                <div class="glass-card p-8 rounded-3xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-8 flex items-center gap-3 text-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-600">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        我的技能
+                    </h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">寫代碼 (Coding)</span>
+                                <span class="text-brand-600 font-bold">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-brand-500 to-indigo-500 h-3 rounded-full shadow-sm" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">微積分 (Calculus)</span>
+                                <span class="text-brand-600 font-bold">75%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-brand-400 to-indigo-400 h-3 rounded-full shadow-sm" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interests Cards -->
+                <div class="glass-card p-8 rounded-3xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-8 flex items-center gap-3 text-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-500">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        我的興趣
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:bg-brand-50 hover:border-brand-100 transition-all group">
+                            <i class="fa-solid fa-book-open text-4xl text-slate-300 group-hover:text-brand-500 mb-4 transition-colors"></i>
+                            <h4 class="font-bold text-slate-800 text-lg">讀書</h4>
+                            <p class="text-sm text-slate-500 mt-2">享受平靜與知識</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:bg-brand-50 hover:border-brand-100 transition-all group">
+                            <i class="fa-solid fa-bed text-4xl text-slate-300 group-hover:text-brand-500 mb-4 transition-colors"></i>
+                            <h4 class="font-bold text-slate-800 text-lg">睡覺</h4>
+                            <p class="text-sm text-slate-500 mt-2">簡單生活的真諦</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="project-grid">
-          <article class="project-card project-featured" data-category="web">
-            <div class="project-art art-lumen"><span>LUMEN</span><i></i></div>
-            <div class="project-info"><p class="project-type">WEB INTERACTION · 2026</p><h3>Lumen 光影展覽網站</h3><p>以捲動敘事與互動卡片介紹校內光影展。</p><a href="#contact" class="text-link">查看專案 <span>↗</span></a></div>
-          </article>
-          <article class="project-card" data-category="visual">
-            <div class="project-art art-tide"><span>潮汐<br />TIDE</span><i></i></div>
-            <div class="project-info"><p class="project-type">VISUAL IDENTITY · 2026</p><h3>潮汐品牌識別</h3><p>從海岸線提取節奏，轉換成一組品牌視覺。</p><a href="#contact" class="text-link">查看專案 <span>↗</span></a></div>
-          </article>
-          <article class="project-card" data-category="motion">
-            <div class="project-art art-rhythm"><span>RHYTHM<br />OF AIR</span><i></i></div>
-            <div class="project-info"><p class="project-type">MOTION STUDY · 2025</p><h3>空氣的節奏</h3><p>用形狀、速度與聲音做一段動態練習。</p><a href="#contact" class="text-link">查看專案 <span>↗</span></a></div>
-          </article>
-          <article class="project-card" data-category="visual">
-            <div class="project-art art-letter"><span>A<br />Z</span><i></i></div>
-            <div class="project-info"><p class="project-type">EDITORIAL DESIGN · 2025</p><h3>字體採集誌</h3><p>記錄城市裡容易被忽略的字體風景。</p><a href="#contact" class="text-link">查看專案 <span>↗</span></a></div>
-          </article>
-          <article class="project-card" data-category="web">
-            <div class="project-art art-orbit"><span>ORBIT<br />LAB</span><i></i></div>
-            <div class="project-info"><p class="project-type">CREATIVE CODING · 2025</p><h3>Orbit 互動實驗室</h3><p>以滑鼠移動探索軌道、速度與色彩。</p><a href="#contact" class="text-link">查看專案 <span>↗</span></a></div>
-          </article>
-          <article class="project-card" data-category="motion">
-            <div class="project-art art-frame"><span>FRAME<br />BY FRAME</span><i></i></div>
-            <div class="project-info"><p class="project-type">SHORT FILM · 2025</p><h3>一格一格的日常</h3><p>將日常片段剪輯成一封給自己的影像信。</p><a href="#contact" class="text-link">查看專案 <span>↗</span></a></div>
-          </article>
+    <!-- Contact Section -->
+    <footer id="contact" class="bg-slate-900 text-white py-20 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-600 rounded-full blur-3xl opacity-20 transform translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-600 rounded-full blur-3xl opacity-20 transform -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-3xl font-bold mb-6">保持聯繫</h2>
+            <p class="text-slate-400 mb-12 max-w-xl mx-auto">
+                如果您有任何想法或合作機會，歡迎透過以下方式與我聯絡！
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16">
+                <!-- Email -->
+                <a href="mailto:bd1151008@venus.lit.edu.tw" class="w-full sm:w-auto flex items-center gap-4 bg-white/5 hover:bg-white/10 transition-colors px-6 py-4 rounded-2xl border border-white/10 backdrop-blur-sm">
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                        <i class="fa-solid fa-envelope text-xl text-brand-300"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-400 mb-1">Email</p>
+                        <p class="text-sm font-medium tracking-wide">bd1151008@venus.lit.edu.tw</p>
+                    </div>
+                </a>
+
+                <!-- Line -->
+                <div class="w-full sm:w-auto flex items-center gap-4 bg-white/5 hover:bg-[#06C755]/10 transition-colors px-6 py-4 rounded-2xl border border-white/10 backdrop-blur-sm group cursor-pointer" onclick="alert('Line ID: @jajunok97\n(可在此實作複製功能)')">
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:text-[#06C755] transition-colors">
+                        <i class="fa-brands fa-line text-2xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-400 mb-1">Line ID</p>
+                        <p class="text-sm font-medium tracking-wide">@jajunok97</p>
+                    </div>
+                </div>
+
+                <!-- Instagram -->
+                <a href="https://instagram.com/jajuyushi" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center gap-4 bg-white/5 hover:bg-[#E1306C]/10 transition-colors px-6 py-4 rounded-2xl border border-white/10 backdrop-blur-sm group">
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:text-[#E1306C] transition-colors">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-400 mb-1">Instagram</p>
+                        <p class="text-sm font-medium tracking-wide">jajuyushi</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-slate-500 text-sm">
+                <p>&copy; 2026 溫心妤. All Rights Reserved.</p>
+            </div>
         </div>
-        <p id="empty-state" class="empty-state" hidden>這個分類目前還在累積中，換一個分類看看。</p>
-      </section>
-
-      <section id="contact" class="contact section-shell" aria-labelledby="contact-title">
-        <div class="contact-intro">
-          <p class="eyebrow">03 / CONTACT</p>
-          <h2 id="contact-title">一起做一個<br /><span>值得被看見的作品。</span></h2>
-          <p>如果你想聊聊設計、網站或下一個合作提案，歡迎留下訊息。</p>
-          <a class="contact-email" href="mailto:hello@yuan-portfolio.example">hello@yuan-portfolio.example <span>↗</span></a>
-        </div>
-        <form id="contact-form" class="contact-form">
-          <label for="name">你的名字</label>
-          <input id="name" name="name" type="text" placeholder="例如：王小明" required />
-          <label for="email">電子郵件</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
-          <label for="message">想聊聊什麼？</label>
-          <textarea id="message" name="message" rows="4" placeholder="簡單描述你的想法……" required></textarea>
-          <button class="button button-primary form-submit" type="submit">送出訊息 <span aria-hidden="true">↗</span></button>
-          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-        </form>
-      </section>
-    </main>
-
-    <footer class="site-footer section-shell">
-      <span>© <span id="year"></span> Lin Yu-An</span>
-      <span>Built with curiosity &amp; code.</span>
-      <a href="#top">回到頂端 ↑</a>
     </footer>
-  </body>
+
+</body>
 </html>
