@@ -1,211 +1,208 @@
 <!DOCTYPE html>
-<html lang="zh-Hant" class="scroll-smooth">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>溫心妤 | 數位多媒體系個人作品集</title>
+    <title>溫心妤 | 數位多媒體系</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- FontAwesome -->
+    <!-- FontAwesome 圖示 (僅 CSS) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans TC"', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f5f3ff',
-                            100: '#ede9fe',
-                            500: '#8b5cf6',
-                            600: '#7c3aed',
-                            900: '#4c1d95',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
-        body { font-family: 'Noto Sans TC', sans-serif; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        /* 基礎設定與亮麗動態漸層背景 */
+        :root {
+            --bg-gradient: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);
         }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Noto Sans TC', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 置中毛玻璃卡片 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 28px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 個人照片 */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            margin: 0 auto 20px;
+            display: block;
+            background-color: white;
+        }
+
+        /* 文字排版 */
+        h1 {
+            margin: 0 0 5px;
+            font-size: 32px;
+            font-weight: 900;
+            color: #1a1a1a;
+            letter-spacing: 2px;
+        }
+
+        .dept {
+            color: #e84393;
+            font-size: 13px;
+            font-weight: 700;
+            margin: 0 0 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .quote {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+            margin: 0 0 25px;
+            font-weight: 500;
+            padding: 0 10px;
+        }
+
+        /* 技能與興趣標籤 */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #4a4a4a;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .tag:hover {
+            transform: scale(1.05);
+        }
+
+        /* 社群連結按鈕 */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 18px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .link-btn:hover {
+            background: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .link-btn i {
+            font-size: 22px;
+            transition: color 0.3s ease;
+        }
+
+        /* 按鈕圖示顏色變化 */
+        .link-btn.email i { color: #a4b0be; }
+        .link-btn.email:hover i { color: #ea4335; }
+        
+        .link-btn.line i { color: #a4b0be; }
+        .link-btn.line:hover i { color: #00c300; }
+        
+        .link-btn.ig i { color: #a4b0be; }
+        .link-btn.ig:hover i { color: #e1306c; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-widest text-brand-600">WEN.</a>
-            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
-                <a href="#about" class="hover:text-brand-600 transition-colors">關於我</a>
-                <a href="#skills" class="hover:text-brand-600 transition-colors">技能與興趣</a>
-                <a href="#contact" class="hover:text-brand-600 transition-colors">聯絡方式</a>
-            </div>
-            <a href="#contact" class="md:hidden text-brand-600"><i class="fa-solid fa-bars text-xl"></i></a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="about" class="pt-32 pb-20 md:pt-40 md:pb-32 px-6">
-        <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
-            <!-- Text Content -->
-            <div class="flex-1 text-center md:text-left">
-                <div class="inline-block px-4 py-1.5 rounded-full bg-brand-100 text-brand-600 text-sm font-medium mb-6 shadow-sm border border-brand-200">
-                    <i class="fa-solid fa-graduation-cap mr-2"></i>黎明技術學院 數位多媒體系
-                </div>
-                <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight text-slate-900">
-                    你好，我是 <br class="hidden md:block" />
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-500">溫心妤</span>
-                </h1>
-                <p class="text-lg md:text-xl text-slate-500 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
-                    「喜歡簡單生活，也喜歡認真對待每一件事。」
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#contact" class="px-8 py-3.5 bg-brand-600 text-white rounded-full font-medium hover:bg-brand-700 transition-all shadow-lg shadow-brand-500/30 flex items-center justify-center gap-2 transform hover:-translate-y-1">
-                        與我聯絡 <i class="fa-solid fa-paper-plane"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Profile Image Placeholder -->
-            <div class="flex-1 flex justify-center md:justify-end w-full">
-                <div class="relative w-64 h-64 md:w-80 md:h-80">
-                    <div class="absolute inset-0 bg-gradient-to-br from-brand-100 to-brand-500 rounded-full transform translate-x-4 translate-y-4 md:translate-x-6 md:translate-y-6 opacity-50 blur-lg"></div>
-                    <img src="profile.jpg" alt="溫心妤的個人照" class="relative z-10 w-full h-full object-cover rounded-full border-8 border-white shadow-xl">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills & Interests -->
-    <section id="skills" class="py-20 bg-white px-6 border-y border-slate-100">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 text-slate-900">專業技能 & 日常興趣</h2>
-                <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <!-- Skills Progress Bars -->
-                <div class="glass-card p-8 rounded-3xl shadow-sm">
-                    <h3 class="text-xl font-bold mb-8 flex items-center gap-3 text-slate-800">
-                        <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-600">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        我的技能
-                    </h3>
-                    <div class="space-y-8">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium text-slate-700">寫代碼 (Coding)</span>
-                                <span class="text-brand-600 font-bold">85%</span>
-                            </div>
-                            <div class="w-full bg-slate-100 rounded-full h-3">
-                                <div class="bg-gradient-to-r from-brand-500 to-indigo-500 h-3 rounded-full shadow-sm" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium text-slate-700">微積分 (Calculus)</span>
-                                <span class="text-brand-600 font-bold">75%</span>
-                            </div>
-                            <div class="w-full bg-slate-100 rounded-full h-3">
-                                <div class="bg-gradient-to-r from-brand-400 to-indigo-400 h-3 rounded-full shadow-sm" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Interests Cards -->
-                <div class="glass-card p-8 rounded-3xl shadow-sm">
-                    <h3 class="text-xl font-bold mb-8 flex items-center gap-3 text-slate-800">
-                        <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-500">
-                            <i class="fa-solid fa-heart"></i>
-                        </div>
-                        我的興趣
-                    </h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:bg-brand-50 hover:border-brand-100 transition-all group">
-                            <i class="fa-solid fa-book-open text-4xl text-slate-300 group-hover:text-brand-500 mb-4 transition-colors"></i>
-                            <h4 class="font-bold text-slate-800 text-lg">讀書</h4>
-                            <p class="text-sm text-slate-500 mt-2">享受平靜與知識</p>
-                        </div>
-                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:bg-brand-50 hover:border-brand-100 transition-all group">
-                            <i class="fa-solid fa-bed text-4xl text-slate-300 group-hover:text-brand-500 mb-4 transition-colors"></i>
-                            <h4 class="font-bold text-slate-800 text-lg">睡覺</h4>
-                            <p class="text-sm text-slate-500 mt-2">簡單生活的真諦</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <footer id="contact" class="bg-slate-900 text-white py-20 px-6 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-600 rounded-full blur-3xl opacity-20 transform translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-600 rounded-full blur-3xl opacity-20 transform -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+    <!-- 主體名片區塊 -->
+    <main class="glass-card">
         
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <h2 class="text-3xl font-bold mb-6">保持聯繫</h2>
-            <p class="text-slate-400 mb-12 max-w-xl mx-auto">
-                如果您有任何想法或合作機會，歡迎透過以下方式與我聯絡！
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16">
-                <!-- Email -->
-                <a href="mailto:bd1151008@venus.lit.edu.tw" class="w-full sm:w-auto flex items-center gap-4 bg-white/5 hover:bg-white/10 transition-colors px-6 py-4 rounded-2xl border border-white/10 backdrop-blur-sm">
-                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                        <i class="fa-solid fa-envelope text-xl text-brand-300"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs text-slate-400 mb-1">Email</p>
-                        <p class="text-sm font-medium tracking-wide">bd1151008@venus.lit.edu.tw</p>
-                    </div>
-                </a>
+        <!-- 個人照片放置區 -->
+        <!-- 請將 src 替換為您的實際照片網址 -->
+        <img src="https://placehold.co/400x400/ff6b6b/ffffff?text=Photo" alt="溫心妤" class="profile-img">
 
-                <!-- Line -->
-                <div class="w-full sm:w-auto flex items-center gap-4 bg-white/5 hover:bg-[#06C755]/10 transition-colors px-6 py-4 rounded-2xl border border-white/10 backdrop-blur-sm group cursor-pointer" onclick="alert('Line ID: @jajunok97\n(可在此實作複製功能)')">
-                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:text-[#06C755] transition-colors">
-                        <i class="fa-brands fa-line text-2xl"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs text-slate-400 mb-1">Line ID</p>
-                        <p class="text-sm font-medium tracking-wide">@jajunok97</p>
-                    </div>
-                </div>
+        <!-- 基本資料 -->
+        <h1>溫心妤</h1>
+        <p class="dept">黎明技術學院 數位多媒體系</p>
+        <p class="quote">「喜歡簡單生活，也喜歡認真對待每一件事。」</p>
 
-                <!-- Instagram -->
-                <a href="https://instagram.com/jajuyushi" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center gap-4 bg-white/5 hover:bg-[#E1306C]/10 transition-colors px-6 py-4 rounded-2xl border border-white/10 backdrop-blur-sm group">
-                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:text-[#E1306C] transition-colors">
-                        <i class="fa-brands fa-instagram text-2xl"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs text-slate-400 mb-1">Instagram</p>
-                        <p class="text-sm font-medium tracking-wide">jajuyushi</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="pt-8 border-t border-slate-800 text-slate-500 text-sm">
-                <p>&copy; 2026 溫心妤. All Rights Reserved.</p>
-            </div>
+        <!-- 標籤 (技能與興趣) -->
+        <div class="tags">
+            <span class="tag">#寫代碼</span>
+            <span class="tag">#微積分</span>
+            <span class="tag">#讀書</span>
+            <span class="tag">#睡覺</span>
         </div>
-    </footer>
+
+        <!-- 聯絡方式 -->
+        <div class="links">
+            <a href="mailto:bd1151008@venus.lit.edu.tw" class="link-btn email">
+                <i class="fa-solid fa-envelope"></i>
+                寫信給我
+            </a>
+
+            <!-- Line: 建議可替換成您專屬的加入好友連結 -->
+            <a href="https://line.me/ti/p/@jajunok97" target="_blank" rel="noopener noreferrer" class="link-btn line">
+                <i class="fa-brands fa-line"></i>
+                加入 Line
+            </a>
+
+            <a href="https://instagram.com/jajuyushi" target="_blank" rel="noopener noreferrer" class="link-btn ig">
+                <i class="fa-brands fa-instagram"></i>
+                追蹤 Instagram
+            </a>
+        </div>
+
+    </main>
 
 </body>
 </html>
